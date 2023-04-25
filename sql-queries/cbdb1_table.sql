@@ -1,0 +1,6 @@
+CREATE TABLE CBDB1 (
+	LOCATIONS varchar(255),
+	ASSET int,
+	FIRSTNAME varchar(255),
+	LASTNAME varchar(255)
+)
