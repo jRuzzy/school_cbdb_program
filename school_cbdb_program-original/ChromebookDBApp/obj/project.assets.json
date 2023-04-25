@@ -2003,23 +2003,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jesus Ruiz\\.nuget\\packages\\": {},
+    "C:\\Users\\ruizr\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Visual Studio\\ChromebookDB\\ChromebookDBApp\\ChromebookDBApp.csproj",
+      "projectUniqueName": "C:\\Users\\ruizr\\IdeaProjects\\school_cbdb_program\\school_cbdb_program-original\\ChromebookDBApp\\ChromebookDBApp.csproj",
       "projectName": "ChromebookDBApp",
-      "projectPath": "G:\\Visual Studio\\ChromebookDB\\ChromebookDBApp\\ChromebookDBApp.csproj",
-      "packagesPath": "C:\\Users\\Jesus Ruiz\\.nuget\\packages\\",
-      "outputPath": "G:\\Visual Studio\\ChromebookDB\\ChromebookDBApp\\obj\\",
+      "projectPath": "C:\\Users\\ruizr\\IdeaProjects\\school_cbdb_program\\school_cbdb_program-original\\ChromebookDBApp\\ChromebookDBApp.csproj",
+      "packagesPath": "C:\\Users\\ruizr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ruizr\\IdeaProjects\\school_cbdb_program\\school_cbdb_program-original\\ChromebookDBApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jesus Ruiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ruizr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
