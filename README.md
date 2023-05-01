@@ -52,3 +52,22 @@ Feat:
 Sum:
 
 Documentation in the code itself needs to be looked through and reassesed. It should specify which points of the link between program and the table cause what. The use of the removeRow() function needs to be implemented as well. No errors but "else" instance in the addRow() function could lead to one. This should also be looked into further.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+v0.0.4 Remove function added and new documentation
+
+Desc:
+
+The Remove function has finally been implemented with an error warning similar to the one used in the Add button function. The documentation in the code has also been added to in the form of new details that improve understanding of the methods. The program will now find the device name itself through a variable set once the program launches to eliminate the need to update code when testing on other machines. Dropdown was added for the locations entry which still needs to be developed and a checkbox column has also been added to the dataGridCB.
+
+Feat:
+
+1. machineName variable will take the name of the current machine and automatically set the local server name for testing purposes
+2. Checkbox column
+3. Remove function
+4. Locations drop down added
+
+Sum:
+
+Still need to implement a trial version of the dropdown for the locations as well as a Find function. In order to test the Find function, however, a Clone Check procedure needs to be implemented as well as a sample size of data for testing purposes.
