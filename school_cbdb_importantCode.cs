@@ -1,21 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+//This will initiate the link with the server database and the device that is running the application. DEVICENAME and DATABASENAME would need to be changed accordingly
+string connectionString = "Data Source=DEVICENAME\\SQLEXPRESS;Initial Catalog=DATABASENAME;Integrated Security=True;TrustServerCertificate=True"
 
-namespace school_cbdb_program
-{
-    public partial class Form1 : Form
-    {
-        //database connection string
-        string connectionString = "Data Source=LaptopJR\\SQLEXPRESS;Initial Catalog=school_cbdb_database;Integrated Security=True;TrustServerCertificate=True";
-
-        public void refreshGrid() //refresh function, Change TABLENAME to the name of the table being displayed as well as the DATAGRIDVIEWNAME used to display
+//Standard functions that run most of the queries in adding, removing, and updating what is shown in the datagridview
+public void refreshGrid() //refresh function, Change TABLENAME to the name of the table being displayed as well as the DATAGRIDVIEWNAME used to display
         {
             string sqlQuery = "SELECT * FROM TABLENAME";
 
@@ -27,7 +14,7 @@ namespace school_cbdb_program
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            dataGridCB.DataSource = dt;
+            DATAGRIDVIEWNAME.DataSource = dt;
             sqlConnection.Close();
         }
 
@@ -62,20 +49,3 @@ namespace school_cbdb_program
             FIRST.Text = "";
             LAST.Text = "";
         }
-
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
-}

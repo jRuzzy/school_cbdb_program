@@ -40,3 +40,45 @@ G:\Visual Studio\ChromebookDB\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\
 G:\Visual Studio\ChromebookDB\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 G:\Visual Studio\ChromebookDB\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 G:\Visual Studio\ChromebookDB\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.csproj.CopyComplete
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\ChromebookDBApp.exe
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\ChromebookDBApp.deps.json
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\ChromebookDBApp.runtimeconfig.json
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\ChromebookDBApp.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\ChromebookDBApp.pdb
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Azure.Core.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Azure.Identity.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.Data.SqlClient.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.Identity.Client.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\Microsoft.SqlServer.Server.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\System.Memory.Data.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.csproj.AssemblyReference.cache
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.Form1.resources
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.csproj.GenerateResource.cache
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.AssemblyInfoInputs.cache
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.AssemblyInfo.cs
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.csproj.CoreCompileInputs.cache
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.csproj.CopyComplete
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\refint\ChromebookDBApp.dll
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.pdb
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ChromebookDBApp.genruntimeconfig.cache
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program-original\ChromebookDBApp\obj\Debug\net6.0-windows\ref\ChromebookDBApp.dll
