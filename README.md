@@ -34,3 +34,21 @@ Use:
 Sum:
 
 Code is very broken as is. The main functions need to be revised and renamed accordingly and comments need to be rewritten to make more sense. Using the external .cs file did not make the change any easier if anything it has made it harder. However the database was linked, theoretically as there is no way to test it right now. Will look over issues later.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+v0.0.3 Finalized table link and 2 main functions added
+
+Desc:
+
+The table has been linked and tested. Documentation has been written, roughly, accordingly. The addRow, removeRow, and refreshGrid functions have been implemented and tested. No issues with the functins and the table themselves have arised.
+
+Feat:
+
+1. addRow(string tag) - Adds a row for the column under asset that corresponds with the tag string, takes one input requires 3 data points
+2. removeRow(String tag) - Adds a row for the column under asset that corresponds with the tag string, takes one input
+3. refreshGrid() - Displays updates to the table as soon as the function is called, takes no inputs
+
+Sum:
+
+Documentation in the code itself needs to be looked through and reassesed. It should specify which points of the link between program and the table cause what. The use of the removeRow() function needs to be implemented as well. No errors but "else" instance in the addRow() function could lead to one. This should also be looked into further.
