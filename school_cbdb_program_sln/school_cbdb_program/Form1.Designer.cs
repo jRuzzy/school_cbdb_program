@@ -37,12 +37,12 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridCB = new System.Windows.Forms.DataGridView();
+            this.selectCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.selectCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCB)).BeginInit();
             this.SuspendLayout();
@@ -139,6 +139,14 @@
             this.dataGridCB.Size = new System.Drawing.Size(524, 424);
             this.dataGridCB.TabIndex = 9;
             // 
+            // selectCheckBox
+            // 
+            this.selectCheckBox.HeaderText = "SELECT";
+            this.selectCheckBox.MinimumWidth = 2;
+            this.selectCheckBox.Name = "selectCheckBox";
+            this.selectCheckBox.ReadOnly = true;
+            this.selectCheckBox.Width = 50;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -187,14 +195,6 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 14;
             // 
-            // selectCheckBox
-            // 
-            this.selectCheckBox.HeaderText = "SELECT";
-            this.selectCheckBox.MinimumWidth = 2;
-            this.selectCheckBox.Name = "selectCheckBox";
-            this.selectCheckBox.ReadOnly = true;
-            this.selectCheckBox.Width = 50;
-            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(295, 10);
@@ -203,12 +203,14 @@
             this.button6.TabIndex = 15;
             this.button6.Text = "FIND";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(543, 508);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.comboBox1);
@@ -226,6 +228,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(559, 547);
+            this.MinimumSize = new System.Drawing.Size(559, 547);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -19,6 +19,9 @@ namespace school_cbdb_program
         //database connection string, using the machineName variable to autonmatically assign the computer name
         string connectionString = "Data Source=" + machineName + "\\SQLEXPRESS;Initial Catalog=school_cbdb_database;Integrated Security=True;TrustServerCertificate=True";
 
+
+        //These are all the main funtions that are used to simplify code reused
+
         /// <summary>
         /// reusable function to automatically display new information as the databae is updated
         /// Takes no parameters
@@ -83,6 +86,68 @@ namespace school_cbdb_program
             lastNameEntry.Text = "";
         }
 
+        
+        //these three are the find functions used to locate a sepcific attribute value
+        /// <summary>
+        /// this function will execute a select query through the asset column for a value containing the "tag" inputted
+        /// </summary>
+        /// <param name="tag">this is the value inside the asset tag that the user is trying to find</param>
+        public void findAsset(String tag)
+        {
+            string sqlQuery = "SELECT * FROM CBDB1 WHERE ASSET LIKE '%" + tag + "%'";
+
+            SqlConnection sqlConnection = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
+
+            sqlConnection.Open();
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
+            sqlConnection.Close();
+        }
+
+        /// <summary>
+        /// this function will execute a select query through the firstname column for a value containing the "first" inputted
+        /// </summary>
+        /// <param name="first">this is the value inside the first name that the user is trying to find</param>
+        public void findFirst(String first)
+        {
+            string sqlQuery = "SELECT * FROM CBDB1 WHERE FIRSTNAME LIKE '%" + first + "%'";
+
+            SqlConnection sqlConnection = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
+
+            sqlConnection.Open();
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
+            sqlConnection.Close();
+        }
+
+        /// <summary>
+        /// this function will execute a select query through the firstname column for a value containing the "first" inputted
+        /// </summary>
+        /// <param name="last">this is the value inside the last name that the user is trying to find</param>
+        public void findLast(String last)
+        {
+            string sqlQuery = "SELECT * FROM CBDB1 WHERE LASTNAME LIKE '%" + last + "%'";
+
+            SqlConnection sqlConnection = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
+
+            sqlConnection.Open();
+            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
+            sqlConnection.Close();
+        }
+
         /// <summary>
         /// Form initialization
         /// Use refreshGrid function on startup to display the data from the CBDB1 table
@@ -93,6 +158,8 @@ namespace school_cbdb_program
             InitializeComponent();
             refreshGrid();
         }
+
+        //These are the main button functions
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -163,6 +230,42 @@ namespace school_cbdb_program
                     assetTagEntry.Text = "";
                     firstNameEntry.Text = "";
                     lastNameEntry.Text = "";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Creates a SELECT query for the ASSET, FIRSTNAME, and LASTNAME attributes in that exact order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (assetTagEntry.Text.Length > 0) //as long as the asset entry has a 6 digit number, the removeRow function will be called with a value of the Text inside the entry then refreshed
+            {
+                findAsset(assetTagEntry.Text);
+            }
+            else if (firstNameEntry.Text.Length > 0)
+            {
+                findFirst(firstNameEntry.Text);
+            }
+            else if (lastNameEntry.Text.Length > 0)
+            {
+                findLast(lastNameEntry.Text);
+            }
+            else //if asset entry is not 6 digits the user will be warned and forced to correct it
+            {
+                string message = "Refresh list?";
+                string title = "Resfresh Request";
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.OK)
+                {
+                    assetTagEntry.Text = "";
+                    firstNameEntry.Text = "";
+                    lastNameEntry.Text = "";
+
+                    refreshGrid();
                 }
             }
         }
