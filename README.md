@@ -1,6 +1,24 @@
 # school_cbdb_program
 This program uses a SQLServer database that stores a school's Chromebook information such as who it's been loaned to, when, and where it is. Built as a Windows Forms Application in C#.
 
+v0.1.1 Stable Test Version
+
+Desc:
+
+Finally! The program is now self-dependant and no longer requires knowledge of the values in the table to maintain a working database. The duplicate check functions add further functionality to the ADD button making it all the more easier to keep track of duplicates. Removing the EDIT button from the previous version simplifies controls greatly.
+
+Feat:
+
+1. ADD button
+    uses [checkDuplicateAsset()]
+    uses [checkDuplicateName()]
+
+Sum:
+
+This version has been tested and proved stable and covers most common cases. Rare cases will need to be debugged as the come up. Next step is the implementation of the locations column and the addition of the help form which lists the instructions for how to use the program.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 v0.1 Find function and data model, ready for advanced features
 
 Desc:

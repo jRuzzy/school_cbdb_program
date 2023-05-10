@@ -21,6 +21,15 @@ namespace school_cbdb_program
 
 
         //These are all the main funtions that are used to simplify code reused
+        /// <summary>
+        /// Clears all entry spaces
+        /// </summary>
+        public void clearAll() //clears all text boxes
+        {
+            assetTagEntry.Text = "";
+            firstNameEntry.Text = "";
+            lastNameEntry.Text = "";
+        }
 
         /// <summary>
         /// reusable function to automatically display new information as the databae is updated
@@ -57,11 +66,6 @@ namespace school_cbdb_program
             SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
             cmd.ExecuteNonQuery();
             sqlConnection.Close();
-
-            //clears all values inside entry boxes
-            assetTagEntry.Text = "";
-            firstNameEntry.Text = "";
-            lastNameEntry.Text = "";
         }
 
         /// <summary>
@@ -79,13 +83,7 @@ namespace school_cbdb_program
             SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
             cmd.ExecuteNonQuery();
             sqlConnection.Close();
-
-            //clears all values inside entry boxes
-            assetTagEntry.Text = "";
-            firstNameEntry.Text = "";
-            lastNameEntry.Text = "";
         }
-
         
         //these three are the find functions used to locate a sepcific attribute value
         /// <summary>
@@ -148,6 +146,74 @@ namespace school_cbdb_program
             sqlConnection.Close();
         }
 
+        //duplicate check 
+        /// <summary>
+        /// This function will check whether the inputted asset tag value has been duplicated through the database. It will then return the bool accordingly
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <returns>False if the asset tag has not been used, true if yes</returns>
+        public bool checkDuplicateAsset(string tag) //checks if the asset tag is a duplicate
+        {
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+            sqlConnection.Open();
+
+            using (var sqlCommand = new SqlCommand("SELECT * FROM CBDB1 WHERE ASSET LIKE '" + tag + "'", sqlConnection))
+            {
+                
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+                reader.Close();
+                reader.Dispose();
+
+            }
+
+            sqlConnection.Close();
+        }
+
+        /// <summary>
+        /// The function will take in a first and last valie which would each return a string. The strings will be validated through the table to determine whether the values have been duplicated or not
+        /// The system will then return the bool appropriately
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="last"></param>
+        /// <returns>False if the strings are not duplicates, true if yes</returns>
+        public bool checkDuplicateName(string first, string last) //check if the both the first and last name are duplicates
+        {
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+            sqlConnection.Open();
+
+            using (var sqlCommand = new SqlCommand("SELECT * FROM CBDB1 WHERE FIRSTNAME = '" + first + "' AND LASTNAME = '" + last + "'", sqlConnection))
+            {
+
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+                reader.Close();
+                reader.Dispose();
+
+            }
+
+            sqlConnection.Close();
+        }
+
+
         /// <summary>
         /// Form initialization
         /// Use refreshGrid function on startup to display the data from the CBDB1 table
@@ -160,8 +226,7 @@ namespace school_cbdb_program
         }
 
         //These are the main button functions
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e) //form load code
         {
 
         }
@@ -169,27 +234,68 @@ namespace school_cbdb_program
         /// <summary>
         /// Utilizes the addRow function to create a new item in the CBDB1 table
         /// Uses entries from the assetTagEntry, firstNameEntry, and lastNameEntry as values used for the item
+        /// The button's functions will also check whether the values inputted have been duplicated or not
         /// </summary>
         /// <param name="sender">built in event parameter</param>
         /// <param name="e">built in event parameter</param>
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //add button
         {
             if (assetTagEntry.Text.Length == 6 && (firstNameEntry.Text != "" && lastNameEntry.Text != "")) //if the tag has 6 digits and a first and last name are included, proceed without error
             {
-                addRow(assetTagEntry.Text);
-                refreshGrid();
+                if (!checkDuplicateAsset(assetTagEntry.Text)) //if the asset isn't a duplicate continue
+                {
+                    if (!checkDuplicateName(firstNameEntry.Text, lastNameEntry.Text)) //if the name isn't a duplicate continue
+                    {
+                        addRow(assetTagEntry.Text);
+                        refreshGrid();
+                        clearAll();
+                    }
+                    else //The name is a dupicate and the user is asked to remove the assigned name
+                    {
+                        string message = "This person has already been assigned an item. Please remove the item first.";
+                        string title = "Duplicate Assignment Error";
+                        MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                        DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Stop);
+                        if (result == DialogResult.OK)
+                        {
+                            clearAll();
+                        }
+                    }
+                }
+                else //The asset is a duplicate
+                {
+                    if (!checkDuplicateName(firstNameEntry.Text, lastNameEntry.Text)) //if the name isn't a duplicate, ask to overwrite the assignment
+                    {
+                        string message = "Would you like to overwrite the Asset assignment?";
+                        string title = "Duplicate Asset Error";
+                        MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                        DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+                        if (result == DialogResult.OK)
+                        {
+                            removeRow(assetTagEntry.Text);
+                            addRow(assetTagEntry.Text);
+                            clearAll();
+                        }
+                    }
+                    else //The item is an exact duplicate, clears all entries
+                    {
+                        string message = "This asset and assignment already exist";
+                        string title = "Duplicate Item Error";
+                        MessageBox.Show(message, title);
+
+                        clearAll();
+                    }
+                }
             }
             else if (assetTagEntry.Text.Length != 6) //if the tag is not 6 digits the user will be displayed an error and forced to fix the mistake
             {
                 string message = "Asset Tag must be 6 digits.";
                 string title = "Input Error";
                 MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result = MessageBox.Show(message, title, buttons);
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Stop);
                 if (result == DialogResult.OK)
                 {
-                    assetTagEntry.Text = "";
-                    firstNameEntry.Text = "";
-                    lastNameEntry.Text = "";
+                    clearAll();
                 }
             }
             else //if a first and last name are not specified the user will be displayed an error and forced to correct it
@@ -197,12 +303,10 @@ namespace school_cbdb_program
                 string message = "Please assign both a first and last name.";
                 string title = "Input Error";
                 MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result = MessageBox.Show(message, title, buttons);
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Stop);
                 if (result == DialogResult.OK)
                 {
-                    assetTagEntry.Text = "";
-                    firstNameEntry.Text = "";
-                    lastNameEntry.Text = "";
+                    clearAll();
                 }
             }
         }
@@ -212,12 +316,14 @@ namespace school_cbdb_program
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //delete button
         {
             if(assetTagEntry.Text.Length == 6) //as long as the asset entry has a 6 digit number, the removeRow function will be called with a value of the Text inside the entry then refreshed
             {
                 removeRow(assetTagEntry.Text);
                 refreshGrid();
+
+                clearAll();
             }
             else //if asset entry is not 6 digits the user will be warned and forced to correct it
             {
@@ -227,9 +333,7 @@ namespace school_cbdb_program
                 DialogResult result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.OK)
                 {
-                    assetTagEntry.Text = "";
-                    firstNameEntry.Text = "";
-                    lastNameEntry.Text = "";
+                    clearAll();
                 }
             }
         }
@@ -239,7 +343,7 @@ namespace school_cbdb_program
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e) //find button
         {
             if (assetTagEntry.Text.Length > 0) //as long as the asset entry has a 6 digit number, the removeRow function will be called with a value of the Text inside the entry then refreshed
             {
@@ -261,9 +365,7 @@ namespace school_cbdb_program
                 DialogResult result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.OK)
                 {
-                    assetTagEntry.Text = "";
-                    firstNameEntry.Text = "";
-                    lastNameEntry.Text = "";
+                    clearAll();
 
                     refreshGrid();
                 }

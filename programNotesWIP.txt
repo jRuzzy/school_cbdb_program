@@ -1,0 +1,5 @@
+Give the EDIT functionality to the ADD button. This simplifies controls so that fewer information is on screen.
+
+Create a Message Box function that will only take inputs and create a Popup accordingly to clean up repetitive code
+
+Check voice memo "CBDB1 ADD functionality" for pseudo steps
