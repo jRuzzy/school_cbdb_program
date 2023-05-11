@@ -3,3 +3,39 @@ Give the EDIT functionality to the ADD button. This simplifies controls so that 
 Create a Message Box function that will only take inputs and create a Popup accordingly to clean up repetitive code
 
 Check voice memo "CBDB1 ADD functionality" for pseudo steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input 3 of the following
+
+376521   Benjamin    Wright
+365481   Emma        White
+325691   Samuel      Turner
+330568   Mia         Smith
+301472   Lucas       Phillips
+301569   Isabella   Sanchez
+312765   Alexander  Garcia
+396258   Lily       Brown
+372589   Noah       Rodriguez
+344897   Avery      Cook
+306895   Chloe      Anderson
+
+Find the name assinged to 123123
+
+Find the asset assigned to Benjamin Cook
+
+Overwrite Samuel Turner to 345667
+
+Overwrite Amelia Carter to 333426

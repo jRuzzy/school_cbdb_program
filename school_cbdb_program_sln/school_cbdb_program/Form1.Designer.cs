@@ -36,7 +36,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridCB = new System.Windows.Forms.DataGridView();
-            this.selectCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -117,8 +116,6 @@
             this.dataGridCB.AllowUserToAddRows = false;
             this.dataGridCB.AllowUserToDeleteRows = false;
             this.dataGridCB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.selectCheckBox});
             this.dataGridCB.Location = new System.Drawing.Point(9, 74);
             this.dataGridCB.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridCB.Name = "dataGridCB";
@@ -127,14 +124,6 @@
             this.dataGridCB.RowTemplate.Height = 24;
             this.dataGridCB.Size = new System.Drawing.Size(573, 424);
             this.dataGridCB.TabIndex = 9;
-            // 
-            // selectCheckBox
-            // 
-            this.selectCheckBox.HeaderText = "SELECT";
-            this.selectCheckBox.MinimumWidth = 2;
-            this.selectCheckBox.Name = "selectCheckBox";
-            this.selectCheckBox.ReadOnly = true;
-            this.selectCheckBox.Width = 50;
             // 
             // label1
             // 
@@ -240,7 +229,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selectCheckBox;
         private System.Windows.Forms.Button button6;
     }
 }

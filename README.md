@@ -1,6 +1,28 @@
 # school_cbdb_program
 This program uses a SQLServer database that stores a school's Chromebook information such as who it's been loaned to, when, and where it is. Built as a Windows Forms Application in C#.
 
+v0.1.2 Stable modular patch
+
+Desc:
+
+This patch for the most part only changes some of the connection string to be easier to update in the event the table has to be migrated an a different name needs to be used. The new table has been made and named "CB3" for the sake of simplicity. The table now has a new "LOC" column which will contain the value of a non-assigned ASSET. The "LOC" table has also been created but has not been implemented and only consists of a primary key "ID" column and an "LOCNAME" column.
+
+Feat:
+
+1. New CB3 table
+    Same as the old table but adds LOC column
+2. Modularity changes
+    string mainTable has been initialized to CB3
+    string locTable has been initialized to LOC
+3. Removed unused SELECT column from previous build
+4. SQL queries to initialize tables and test data set in [school_cbdb_program/sql-queries/v0.1.2]
+
+Sum:
+
+Still at a usable state but the code will need to be majorly redone in order to accomodate the new location system. This means that testing for that new feature will require a branch that simplifies the ADD functionality. The entire button function will need to be redone. Location first needs to be set up with a new Form to allow the creation and removal of locations.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 v0.1.1 Stable Test Version
 
 Desc:

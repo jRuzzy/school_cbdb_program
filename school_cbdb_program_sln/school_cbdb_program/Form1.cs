@@ -15,10 +15,11 @@ namespace school_cbdb_program
     public partial class Form1 : Form
     {
         public static string machineName = System.Windows.Forms.SystemInformation.ComputerName; //This simplifies local testing by automatically setting the connection string without needing to input it manually. As long as the rest of the database is set up correctly nothing needs to be done to this.
-
-        //database connection string, using the machineName variable to autonmatically assign the computer name
-        string connectionString = "Data Source=" + machineName + "\\SQLEXPRESS;Initial Catalog=school_cbdb_database;Integrated Security=True;TrustServerCertificate=True";
-
+        public static string mainDB = "school_cbdb_database"; //database string, will simplify the name change of the database used when needed
+        
+        string connectionString = "Data Source=" + machineName + "\\SQLEXPRESS;Initial Catalog=" + mainDB + ";Integrated Security=True;TrustServerCertificate=True"; //database connection string, using the machineName variable to autonmatically assign the 
+        string mainTable = "CB3"; //table string, reused in place of the main table in all references needed
+        string locTable = "LOC"; //table string, used for the loc table
 
         //These are all the main funtions that are used to simplify code reused
         /// <summary>
@@ -38,7 +39,7 @@ namespace school_cbdb_program
         /// </summary>
         public void refreshGrid() //refresh function, Change TABLENAME to the name of the table being displayed as well as the DATAGRIDVIEWNAME used to display
         {
-            string sqlQuery = "SELECT * FROM CBDB1"; //query used to display the rows and columns inside the CBDB1 table
+            string sqlQuery = "SELECT * FROM " + mainTable; //query used to display the rows and columns inside the CBDB1 table
 
             SqlConnection sqlConnection = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
 
@@ -58,7 +59,7 @@ namespace school_cbdb_program
         /// <param name="tag">Entered in the assetTagEntry box in the program. Reference in the ASSET column</param>
         public void removeRow(String tag) //remove function, replace CBDB1 accordingly, ASSETTAG accordingly
         {
-            string sqlQuery = "DELETE FROM CBDB1 WHERE ASSET = " + "'" + tag + "'"; //deletes an item from the ASSET line refrenced by "tag" in the CBDB1
+            string sqlQuery = "DELETE FROM " + mainTable + " WHERE ASSET = " + "'" + tag + "'"; //deletes an item from the ASSET line refrenced by "tag" in the CBDB1
 
             SqlConnection sqlConnection = new SqlConnection(connectionString);
 
@@ -75,7 +76,7 @@ namespace school_cbdb_program
         public void addRow(String tag)//add function, replace CBDB1 accordingly, ASSETTAG, FIRST, LAST accordingly
         {
             //adds a row of the values ASSET, FIRSTNAME, LASTNAME from the corresponding entry boxes
-            string sqlQuery = "INSERT INTO CBDB1 (ASSET, FIRSTNAME, LASTNAME) VALUES (" + "'" + assetTagEntry.Text + "'" + "," + "'" + firstNameEntry.Text + "'" + "," + "'" + lastNameEntry.Text + "'" + ")";
+            string sqlQuery = "INSERT INTO " + mainTable + " (ASSET, FIRSTNAME, LASTNAME) VALUES (" + "'" + assetTagEntry.Text + "'" + "," + "'" + firstNameEntry.Text + "'" + "," + "'" + lastNameEntry.Text + "'" + ")";
 
             SqlConnection sqlConnection = new SqlConnection(connectionString);
 
@@ -92,7 +93,7 @@ namespace school_cbdb_program
         /// <param name="tag">this is the value inside the asset tag that the user is trying to find</param>
         public void findAsset(String tag)
         {
-            string sqlQuery = "SELECT * FROM CBDB1 WHERE ASSET LIKE '%" + tag + "%'";
+            string sqlQuery = "SELECT * FROM " + mainTable + " WHERE ASSET LIKE '%" + tag + "%'";
 
             SqlConnection sqlConnection = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
 
@@ -112,7 +113,7 @@ namespace school_cbdb_program
         /// <param name="first">this is the value inside the first name that the user is trying to find</param>
         public void findFirst(String first)
         {
-            string sqlQuery = "SELECT * FROM CBDB1 WHERE FIRSTNAME LIKE '%" + first + "%'";
+            string sqlQuery = "SELECT * FROM " + mainTable + " WHERE FIRSTNAME LIKE '%" + first + "%'";
 
             SqlConnection sqlConnection = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
 
@@ -132,7 +133,7 @@ namespace school_cbdb_program
         /// <param name="last">this is the value inside the last name that the user is trying to find</param>
         public void findLast(String last)
         {
-            string sqlQuery = "SELECT * FROM CBDB1 WHERE LASTNAME LIKE '%" + last + "%'";
+            string sqlQuery = "SELECT * FROM " + mainTable + " WHERE LASTNAME LIKE '%" + last + "%'";
 
             SqlConnection sqlConnection = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
 
@@ -158,7 +159,7 @@ namespace school_cbdb_program
 
             sqlConnection.Open();
 
-            using (var sqlCommand = new SqlCommand("SELECT * FROM CBDB1 WHERE ASSET LIKE '" + tag + "'", sqlConnection))
+            using (var sqlCommand = new SqlCommand("SELECT * FROM " + mainTable + " WHERE ASSET LIKE '" + tag + "'", sqlConnection))
             {
                 
                 SqlDataReader reader = sqlCommand.ExecuteReader();
@@ -192,7 +193,7 @@ namespace school_cbdb_program
 
             sqlConnection.Open();
 
-            using (var sqlCommand = new SqlCommand("SELECT * FROM CBDB1 WHERE FIRSTNAME = '" + first + "' AND LASTNAME = '" + last + "'", sqlConnection))
+            using (var sqlCommand = new SqlCommand("SELECT * FROM " + mainTable + " WHERE FIRSTNAME = '" + first + "' AND LASTNAME = '" + last + "'", sqlConnection))
             {
 
                 SqlDataReader reader = sqlCommand.ExecuteReader();
