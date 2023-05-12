@@ -373,9 +373,25 @@ namespace school_cbdb_program
             }
         }
 
+        /// <summary>
+        /// Creates a clear request with the clearAll() func
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e) //clear button
         {
             clearAll();
+        }
+
+        /// <summary>
+        /// Launches the help window which includes use instructions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button4_Click(object sender, EventArgs e) //help button
+        {
+            var newForm = new Form2help();
+            newForm.Show();
         }
     }
 }

@@ -10,6 +10,17 @@ The SQL queries to initialize the tables as well as the testing data set are sto
 
 Once complete the program can be launched from VS and should be ready for testing.
 
+v0.1.4 Update - Help button
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Desc: 
+
+The HELP button has been added. Mostly a place holder feature for the duration of the program's development. In order to avoid redundancy with changing controls the actual guide will be written as soon as v1.0 is shipped.
+
+Feat:
+
+1. HELP button
+
 v0.1.3 Clear button update
 --------------------------------------------------------------------------------------------------------------------------------------------
 
