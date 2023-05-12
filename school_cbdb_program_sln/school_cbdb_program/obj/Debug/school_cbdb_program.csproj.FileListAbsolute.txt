@@ -157,3 +157,4 @@ F:\Dev\GitHub\Repositories\school_cbdb_program\school_cbdb_program_sln\school_cb
 F:\Dev\GitHub\Repositories\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.exe
 F:\Dev\GitHub\Repositories\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.pdb
 F:\Dev\GitHub\Repositories\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.Form2help.resources
+F:\Dev\GitHub\Repositories\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.Form3loc.resources

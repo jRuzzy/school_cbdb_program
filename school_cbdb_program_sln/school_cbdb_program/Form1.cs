@@ -393,5 +393,11 @@ namespace school_cbdb_program
             var newForm = new Form2help();
             newForm.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var newForm = new Form3loc();
+            newForm.Show();
+        }
     }
 }

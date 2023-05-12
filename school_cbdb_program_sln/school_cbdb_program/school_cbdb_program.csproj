@@ -193,6 +193,12 @@
     <Compile Include="Form2help.Designer.cs">
       <DependentUpon>Form2help.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form3loc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3loc.Designer.cs">
+      <DependentUpon>Form3loc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2help.resx">
       <DependentUpon>Form2help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3loc.resx">
+      <DependentUpon>Form3loc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
