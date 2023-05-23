@@ -40,18 +40,31 @@ namespace school_cbdb_program
         /// </summary>
         public void refreshGrid() //refresh function, Change TABLENAME to the name of the table being displayed as well as the DATAGRIDVIEWNAME used to display
         {
-            string sqlQuery = "SELECT * FROM " + mainTable; //query used to display the rows and columns inside the CBDB1 table
+            string sqlQueryOne = "SELECT * FROM " + mainTable; //query used to display the rows and columns inside the CBDB1 table
 
-            SqlConnection sqlConnection = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
+            SqlConnection sqlConnectionOne = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
 
-            sqlConnection.Open();
-            SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+            sqlConnectionOne.Open();
+            SqlCommand cmd = new SqlCommand(sqlQueryOne, sqlConnectionOne);
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             dataGridASCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
-            sqlConnection.Close();
+            sqlConnectionOne.Close();
+
+            string sqlQueryTwo = "SELECT * FROM " + storedTable; //query used to display the rows and columns inside the CBDB1 table
+
+            SqlConnection sqlConnectionTwo = new SqlConnection(connectionString); //This initializes an instantaneous connection with the "connectionString" variable
+
+            sqlConnectionTwo.Open();
+            SqlCommand cmdTwo = new SqlCommand(sqlQueryTwo, sqlConnectionTwo);
+            cmdTwo.ExecuteNonQuery();
+            DataTable dtst = new DataTable();
+            SqlDataAdapter dast = new SqlDataAdapter(cmdTwo);
+            dast.Fill(dtst);
+            dataGridSTCB.DataSource = dtst; //this line assigns the table's values to the "dataGridCB"
+            sqlConnectionTwo.Close();
         }
 
         /// <summary>
