@@ -15,10 +15,11 @@ namespace school_cbdb_program
     public partial class Form1 : Form
     {
         public static string machineName = System.Windows.Forms.SystemInformation.ComputerName; //This simplifies local testing by automatically setting the connection string without needing to input it manually. As long as the rest of the database is set up correctly nothing needs to be done to this.
-        public static string mainDB = "school_cbdb_database"; //database string, will simplify the name change of the database used when needed
+        public static string mainDB = "cbdb"; //database string, will simplify the name change of the database used when needed
         
         string connectionString = "Data Source=" + machineName + "\\SQLEXPRESS;Initial Catalog=" + mainDB + ";Integrated Security=True;TrustServerCertificate=True"; //database connection string, using the machineName variable to autonmatically assign the 
-        string mainTable = "CB3"; //table string, reused in place of the main table in all references needed
+        string mainTable = "ASCB"; //table string, reused in place of the main table that contains all assigned chromebooks
+        string storedTable = "STCB"; //table string, reused in place of the table that contains all unasigned chromebooks
         string locTable = "LOC"; //table string, used for the loc table
 
         //These are all the main funtions that are used to simplify code reused
@@ -49,7 +50,7 @@ namespace school_cbdb_program
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            dataGridCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
+            dataGridASCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
             sqlConnection.Close();
         }
 
@@ -103,7 +104,7 @@ namespace school_cbdb_program
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            dataGridCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
+            dataGridASCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
             sqlConnection.Close();
         }
 
@@ -123,7 +124,7 @@ namespace school_cbdb_program
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            dataGridCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
+            dataGridASCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
             sqlConnection.Close();
         }
 
@@ -143,7 +144,7 @@ namespace school_cbdb_program
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            dataGridCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
+            dataGridASCB.DataSource = dt; //this line assigns the table's values to the "dataGridCB"
             sqlConnection.Close();
         }
 
@@ -233,113 +234,6 @@ namespace school_cbdb_program
         }
 
         /// <summary>
-        /// Utilizes the addRow function to create a new item in the CBDB1 table
-        /// Uses entries from the assetTagEntry, firstNameEntry, and lastNameEntry as values used for the item
-        /// The button's functions will also check whether the values inputted have been duplicated or not
-        /// </summary>
-        /// <param name="sender">built in event parameter</param>
-        /// <param name="e">built in event parameter</param>
-        private void button1_Click(object sender, EventArgs e) //add button
-        {
-            if (assetTagEntry.Text.Length == 6 && (firstNameEntry.Text != "" && lastNameEntry.Text != "")) //if the tag has 6 digits and a first and last name are included, proceed without error
-            {
-                if (!checkDuplicateAsset(assetTagEntry.Text)) //if the asset isn't a duplicate continue
-                {
-                    if (!checkDuplicateName(firstNameEntry.Text, lastNameEntry.Text)) //if the name isn't a duplicate continue
-                    {
-                        addRow(assetTagEntry.Text);
-                        refreshGrid();
-                        clearAll();
-                    }
-                    else //The name is a dupicate and the user is asked to remove the assigned name
-                    {
-                        string message = "This person has already been assigned an item. Please remove the item first.";
-                        string title = "Duplicate Assignment Error";
-                        MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                        DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Stop);
-                        if (result == DialogResult.OK)
-                        {
-                            clearAll();
-                        }
-                    }
-                }
-                else //The asset is a duplicate
-                {
-                    if (!checkDuplicateName(firstNameEntry.Text, lastNameEntry.Text)) //if the name isn't a duplicate, ask to overwrite the assignment
-                    {
-                        string message = "Would you like to overwrite the Asset assignment?";
-                        string title = "Duplicate Asset Error";
-                        MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                        DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
-                        if (result == DialogResult.OK)
-                        {
-                            removeRow(assetTagEntry.Text);
-                            addRow(assetTagEntry.Text);
-                            clearAll();
-                        }
-                    }
-                    else //The item is an exact duplicate, clears all entries
-                    {
-                        string message = "This asset and assignment already exist";
-                        string title = "Duplicate Item Error";
-                        MessageBox.Show(message, title);
-
-                        clearAll();
-                    }
-                }
-            }
-            else if (assetTagEntry.Text.Length != 6) //if the tag is not 6 digits the user will be displayed an error and forced to fix the mistake
-            {
-                string message = "Asset Tag must be 6 digits.";
-                string title = "Input Error";
-                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Stop);
-                if (result == DialogResult.OK)
-                {
-                    clearAll();
-                }
-            }
-            else //if a first and last name are not specified the user will be displayed an error and forced to correct it
-            {
-                string message = "Please assign both a first and last name.";
-                string title = "Input Error";
-                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Stop);
-                if (result == DialogResult.OK)
-                {
-                    clearAll();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Creates a delete query to clear a row from the table based on the value inputted for the ASSET column
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e) //delete button
-        {
-            if(assetTagEntry.Text.Length == 6) //as long as the asset entry has a 6 digit number, the removeRow function will be called with a value of the Text inside the entry then refreshed
-            {
-                removeRow(assetTagEntry.Text);
-                refreshGrid();
-
-                clearAll();
-            }
-            else //if asset entry is not 6 digits the user will be warned and forced to correct it
-            {
-                string message = "Asset Tag must be 6 digits.";
-                string title = "Input Error";
-                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result = MessageBox.Show(message, title, buttons);
-                if (result == DialogResult.OK)
-                {
-                    clearAll();
-                }
-            }
-        }
-
-        /// <summary>
         /// Creates a SELECT query for the ASSET, FIRSTNAME, and LASTNAME attributes in that exact order
         /// </summary>
         /// <param name="sender"></param>
@@ -391,6 +285,30 @@ namespace school_cbdb_program
         private void button4_Click(object sender, EventArgs e) //help button
         {
             var newForm = new Form2help();
+            newForm.Show();
+        }
+
+        /// <summary>
+        /// Launches the create window that allows the user to add chromebooks to the entire database
+        /// This step would be required to ensure that no unregistered chrombooks are assigned to students
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e) //create button
+        {
+            var newForm = new CreateForm();
+            newForm.Show();
+        }
+
+        /// <summary>
+        /// Launches the assign window that assigns a chromebook from the stored table to the inputted student
+        /// The assigned chromebook must've been previously added to the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var newForm = new AssignForm();
             newForm.Show();
         }
     }

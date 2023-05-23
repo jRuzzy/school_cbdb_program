@@ -181,6 +181,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignForm.Designer.cs">
+      <DependentUpon>AssignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateForm.Designer.cs">
+      <DependentUpon>CreateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
