@@ -238,3 +238,5 @@ D:\Dev\GitHub\Repositories\school_cbdb_program\school_cbdb_program_sln\school_cb
 D:\Dev\GitHub\Repositories\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.exe
 D:\Dev\GitHub\Repositories\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.pdb
 C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.Form2help.resources
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.AssignForm.resources
+C:\Users\ruizr\IdeaProjects\school_cbdb_program\school_cbdb_program_sln\school_cbdb_program\obj\Debug\school_cbdb_program.CreateForm.resources

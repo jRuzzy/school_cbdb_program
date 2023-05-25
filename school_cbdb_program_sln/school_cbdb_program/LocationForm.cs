@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace school_cbdb_program
 {
-    public partial class CreateForm : Form
+    public partial class LocationForm : Form
     {
-        public CreateForm()
+        public LocationForm()
         {
             InitializeComponent();
-        }
-
-        private void createLocationButton_Click(object sender, EventArgs e) //launches locations gridview
-        {
-            var newForm = new LocationForm();
-            newForm.Show();
         }
     }
 }
